@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 
-function IndexPage({ data: { allGraphCmsPost } }) {
+function IndexPage({ data: { allGraphCmsExclusivePremierPost } }) {
   return (
     <div className="divide-y divide-gray-200">
       <div className="pt-6 pb-8 space-y-2 md:space-y-5">
@@ -14,7 +14,7 @@ function IndexPage({ data: { allGraphCmsPost } }) {
       </div>
 
       <ul className="divide-y divide-gray-200">
-        {allGraphCmsPost.nodes.map((post) => {
+        {allGraphCmsExclusivePremierPost.nodes.map((post) => {
           return (
             <li key={post.id} className="py-12">
               <article className="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
@@ -61,10 +61,10 @@ function IndexPage({ data: { allGraphCmsPost } }) {
 
 export const indexPageQuery = graphql`
   {
-    allGraphCmsPost(sort: { fields: date, order: DESC }) {
+    allGraphCmsExclusivePremierPost(sort: { fields: date, order: DESC }) {
       nodes {
         id
-        date: formattedDate
+        date
         excerpt
         slug
         title
