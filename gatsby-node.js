@@ -14,7 +14,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
     `
   )
 
-  if (data.errors) throw data.errors
+  if (data.errors) throw data.errors // not very informative
 
   // create About page
   const aboutPage = data.pages.nodes.filter(p => Boolean(p.slug.match(/^about-page$/)));
@@ -23,6 +23,34 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
       path: p.slug,
       component: path.resolve('src/templates/about-page.js'),
       context: { id:p.id }
+    });
+  });
+
+  // create exclusive premier page 
+  const exclusivePremierPage = data.pages.nodes.filter(p => Boolean(p.slug.match(/^exclusive-premier-page$/)));
+  exclusivePremierPage.forEach(p => {
+    createPage({
+      path: p.slug,
+      component: path.resolve('src/templates/exclusive-premier-page.js'),
+      context: { id:p.id },
+    });
+  });
+
+  const interviewPage = data.pages.nodes.filter(p => Boolean(p.slug.match(/^interview-page$/)));
+  interviewPage.forEach(p => {
+    createPage({
+      path: p.slug,
+      component: path.resolve('src/templates/interview-page.js'),
+      context: { id:p.id },
+    });
+  });
+
+  const musicReviewPage = data.pages.nodes.filter(p => Boolean(p.slug.match(/^music-review-page$/)));
+  musicReviewPage.forEach(p => {
+    createPage({
+      path: p.slug,
+      component: path.resolve('src/templates/music-review-page.js'),
+      context: { id:p.id },
     });
   });
 }
