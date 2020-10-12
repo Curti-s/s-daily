@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import PostListTemplate from './post-list-template';
@@ -16,9 +15,7 @@ const ExclusivePremierPage = ({ data }) => {
       }
     </div>
   );
-}
-
-ExclusivePremierPage.propTypes = { data: PropTypes.object.isRequired };
+};
 
 export const exclusivePremierPageQuery = graphql`
   query($id:String!) {
@@ -73,4 +70,3 @@ export const exclusivePremierPageQuery = graphql`
   }
 `;
 export default ExclusivePremierPage;
-

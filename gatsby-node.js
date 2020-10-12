@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('path');
 
 exports.createPages = async ({ actions: { createPage }, graphql }) => {
   const { data } = await graphql(
@@ -29,10 +29,10 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
           }
         }
       }
-    `
+    `,
   );
 
-  if (!data || data.errors) throw new Error('error occurred ', data.errors) // not very informative
+  if (!data || data.errors) throw new Error('error occurred ', data.errors); // not very informative
 
   // create About page
   const aboutPage = data.pages.nodes.filter(p => Boolean(p.slug.match(/^about-page$/)));
@@ -40,7 +40,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
     createPage({
       path: p.slug,
       component: path.resolve('src/templates/about-page.js'),
-      context: { id: p.id }
+      context: { id: p.id },
     });
   });
 
@@ -103,26 +103,26 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
       context: { id: p.id },
     });
   });
-}
+};
 
 exports.createResolvers = ({ createResolvers }) => {
   const resolvers = {
     GraphCMS_Post: {
       formattedDate: {
         type: 'String',
-        resolve: (source) => {
-          const date = new Date(source.date)
+        resolve: source => {
+          const date = new Date(source.date);
 
           return new Intl.DateTimeFormat('en-US', {
             weekday: 'long',
             year: 'numeric',
             month: 'long',
             day: 'numeric',
-          }).format(date)
+          }).format(date);
         },
       },
     },
-  }
+  };
 
-  createResolvers(resolvers)
-}
+  createResolvers(resolvers);
+};

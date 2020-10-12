@@ -1,5 +1,5 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import React from 'react';
+import { graphql } from 'gatsby';
 
 import LatestPostListTemplate from '../templates/latest-post-list';
 
@@ -10,37 +10,37 @@ function IndexPage({ data: { allGraphCmsExclusivePremierPost, allGraphCmsIntervi
         <div className="pt-6 pb-8 space-y-2 md:space-y-5">
           <h1 className="text-3xl leading-9 font-extrabold text-gray-900 tracking-tight sm:text-2xl sm:leading-10 md:text-md md:leading-14">
             Latest on Exclusive Premiers...
-        </h1>
+          </h1>
         </div>
 
         <ul className="">
-          {allGraphCmsExclusivePremierPost.nodes.map((post) => <LatestPostListTemplate post={post} />)}
+          {allGraphCmsExclusivePremierPost.nodes.map(post => <LatestPostListTemplate post={post} />)}
         </ul>
       </div>
       <div className="divide-y divide-gray-200">
         <div className="pt-6 pb-8 space-y-2 md:space-y-5">
           <h1 className="text-3xl leading-9 font-extrabold text-gray-900 tracking-tight sm:text-2xl sm:leading-10 md:text-md md:leading-14">
             Latest on Interviews...
-        </h1>
+          </h1>
         </div>
 
         <ul className="">
-          {allGraphCmsInterviewPost.nodes.map((post) => <LatestPostListTemplate post={post} />)}
+          {allGraphCmsInterviewPost.nodes.map(post => <LatestPostListTemplate post={post} />)}
         </ul>
       </div>
       <div className="divide-y divide-gray-200">
         <div className="pt-6 pb-8 space-y-2 md:space-y-5">
           <h1 className="text-3xl leading-9 font-extrabold text-gray-900 tracking-tight sm:text-2xl sm:leading-10 md:text-md md:leading-14">
             Latest on Music Reviews...
-        </h1>
+          </h1>
         </div>
 
         <ul className="">
-          {allGraphCmsMusicReviewPost.nodes.map((post) => <LatestPostListTemplate post={post} />)}
+          {allGraphCmsMusicReviewPost.nodes.map(post => <LatestPostListTemplate post={post} />)}
         </ul>
       </div>
     </div>
-  )
+  );
 }
 
 export const indexPageQuery = graphql`
@@ -73,6 +73,6 @@ export const indexPageQuery = graphql`
       }
     }
   }
-`
+`;
 
-export default IndexPage
+export default IndexPage;

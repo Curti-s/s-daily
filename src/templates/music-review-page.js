@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import PostListTemplate from './post-list-template';
@@ -14,9 +13,7 @@ const MusicReviewPage = ({ data }) => {
       }
     </div>
   );
-}
-
-MusicReviewPage.propTypes = { data: PropTypes.object.isRequired };
+};
 
 export const interviewPageQuery = graphql`
   query($id:String!) {

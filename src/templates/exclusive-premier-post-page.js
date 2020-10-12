@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import PostPageTemplate from './post-page-template';
 
 const ExclusivePremierPostPage = ({ data }) => {
-  const { graphCmsExclusivePremierPost: post } = data
+  const { graphCmsExclusivePremierPost: post } = data;
 
   return <PostPageTemplate post={post} />;
 };

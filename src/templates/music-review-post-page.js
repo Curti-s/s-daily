@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import PostPageTemplate from './post-page-template';
 
 const MusicReviewPostPage = ({ data }) => {
-  const { graphCmsMusicReviewPost: post } = data
+  const { graphCmsMusicReviewPost: post } = data;
 
   return <PostPageTemplate post={post} />;
 };

@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import { graphql, Link, useStaticQuery } from 'gatsby'
-import { globalHistory, useLocation } from '@reach/router'
-import cx from 'classnames'
+import React, { useEffect, useState } from 'react';
+import { graphql, Link, useStaticQuery } from 'gatsby';
+import { globalHistory, useLocation } from '@reach/router'; // eslint-disable-line import/no-extraneous-dependencies
+import cx from 'classnames';
 
-import GraphCMSMark from '../svg/mark.svg'
-import Transition from './transition'
+import GraphCMSMark from '../svg/mark.svg';
+import Transition from './transition';
 
 function Header() {
-  const [mobileNavOpen, setMobileNavOpen] = useState(false)
-  const location = useLocation()
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const location = useLocation();
   const { pages } = useStaticQuery(graphql`
     {
       pages: allGraphCmsPage {
@@ -19,17 +19,16 @@ function Header() {
         }
       }
     }
-  `)
+  `);
 
   useEffect(
-    () =>
-      globalHistory.listen(({ action }) => {
-        if (action === 'PUSH') setMobileNavOpen(false)
-      }),
-    [setMobileNavOpen]
-  )
+    () => globalHistory.listen(({ action }) => {
+      if (action === 'PUSH') setMobileNavOpen(false);
+    }),
+    [setMobileNavOpen],
+  );
 
-  const toggleMobileNavOpen = () => setMobileNavOpen((open) => !open)
+  const toggleMobileNavOpen = () => setMobileNavOpen(open => !open);
 
   return (
     <header className="py-10 relative">
@@ -37,7 +36,9 @@ function Header() {
         <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
           <div className="flex items-center justify-between w-full md:w-auto">
             <Link to="/" aria-label="ShrapDaily Blog">
-              <span className="text-3xl font-bold font-sans">Shrap</span> <span className="text-3xl font-mono">Daily</span>
+              <span className="text-3xl font-bold font-sans">Shrap</span>
+              {' '}
+              <span className="text-3xl font-mono">Daily</span>
             </Link>
             <div className="-mr-2 flex items-center md:hidden">
               <button
@@ -66,8 +67,8 @@ function Header() {
           </div>
         </div>
         <div className="hidden md:flex md:ml-10 md:pr-4 space-x-8">
-          {pages.nodes.map((page) => {
-            const isActive = location.pathname.startsWith(`/${page.slug}`)
+          {pages.nodes.map(page => {
+            const isActive = location.pathname.startsWith(`/${page.slug}`);
 
             return (
               <Link
@@ -78,12 +79,12 @@ function Header() {
                   {
                     'border-purple-500 text-gray-900 focus:border-purple-600': isActive,
                     'border-transparent text-gray-500 hover:text-gray-600 hover:border-gray-300 focus:text-gray-600 focus:border-grey-600': !isActive,
-                  }
+                  },
                 )}
               >
                 {page.title}
               </Link>
-            )
+            );
           })}
         </div>
       </nav>
@@ -132,8 +133,8 @@ function Header() {
                 </div>
               </div>
               <div className="mt-1 px-2 pt-2 pb-3 space-y-1">
-                {pages.nodes.map((page) => {
-                  const isActive = location.pathname.startsWith(`/${page.slug}`)
+                {pages.nodes.map(page => {
+                  const isActive = location.pathname.startsWith(`/${page.slug}`);
 
                   return (
                     <Link
@@ -144,13 +145,13 @@ function Header() {
                         {
                           'border-purple-500 text-purple-500 bg-purple-50 focus:text-purple-600 focus:bg-purple-100 focus:border-purple-600': isActive,
                           'border-transparent text-gray-500 hover:text-gray-600 hover:bg-gray-50 hover:border-gray-300 focus:text-gray-600 focus:bg-gray-50 focus:border-gray-300': !isActive,
-                        }
+                        },
                       )}
                       role="menuitem"
                     >
                       {page.title}
                     </Link>
-                  )
+                  );
                 })}
               </div>
             </div>
@@ -158,7 +159,7 @@ function Header() {
         </div>
       </Transition>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;
