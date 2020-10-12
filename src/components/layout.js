@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-import Footer from './footer'
-import Header from './header'
-import SEO from './seo'
+import Footer from './footer';
+import Header from './header';
+import SEO from './seo';
 
 function Layout({ children, pageContext: { page } }) {
   return (
-    <React.Fragment>
+    <>
       <SEO {...page} />
       <div className="flex flex-col min-h-screen">
         <div className="flex-grow max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-5xl w-full">
@@ -15,8 +15,8 @@ function Layout({ children, pageContext: { page } }) {
         </div>
         <Footer />
       </div>
-    </React.Fragment>
-  )
+    </>
+  );
 }
 
-export default Layout
+export default Layout;
