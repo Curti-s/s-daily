@@ -2,10 +2,10 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
-    title: 'GraphCMS Blog',
+    title: 'ShrapDaily Blog',
     description:
-      'Gatsby blog starter for GraphCMS! Powered by `gatsby-source-graphcms`, featuring `gatsby-image` and MDX!',
-    keywords: 'Headless CMS, GraphCMS, GraphQL CMS, Gatsby',
+      'SHRAP DAILY is a Music Promo Channel located in Kenya which is based on showcasing the youths talent specifically on Upcoming Underground artistes in Kenya.',
+    keywords: 'Sheng, Hiphop, Rap, Air-Play, Daily, ShrapDaily, Shrap',
   },
   plugins: [
     'gatsby-plugin-mdx',
