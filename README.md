@@ -1,20 +1,14 @@
-# gatsby-starter-graphcms-blog
+<p align="center">
+    <a href="https://shrapdaily.netlify.app" target="_blank" rel="noopener noreferrer" >
+      <img alt="Shrap Daily Logo" src="./src/img/shrap-daily-logo.png" width="200" />
+    </a>
+  </p>
+  <h1 align="center">
+    Shrap Daily website
+  </h1>
 
-> A [Gatsby](httsp://gatsbyjs.com) starter for creating a basic blog with [GraphCMS](https://graphcms.com)
 
-• [Demo](https://gatsby-starter-graphcms-blog.vercel.app) • [`gatsby-source-graphcms`](https://github.com/GraphCMS/gatsby-source-graphcms)
-
-## Quick start
-
-1. **Create a new Gatsby project via the [Gatsby CLI](https://www.npmjs.com/package/gatsby-cli)**
-
-```shell
-gatsby new graphcms-blog https://github.com/GraphCMS/gatsby-starter-graphcms-blog
-```
-
-2. **Provide your GraphCMS project keys**
-
-> In order to use this starter, you'll need to have created a new GraphCMS project using our `Blog Template`.
+> In order to run this locally, you'll need to have created a new GraphCMS project`.
 
 Navigate into your new site’s directory and copy the `.env.sample` file.
 
