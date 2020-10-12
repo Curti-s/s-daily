@@ -4,11 +4,11 @@ import Img from 'gatsby-image';
 
 const PostListTemplate = ({ post }) => {
   return (
-    <Link to={post.id}>
+    <Link to={`/${post.id}`}>
       <div className="flex max-w-2xl py-4">
         <div className="w-2/3">
           <div className="flex mb-2">
-            {post.author && post.author.map(a =>
+            {post.author.length && post.author.map(a =>
               a.image.localFile.childImageSharp ? (
                 <Img fluid={a.image.localFile.childImageSharp.fluid} alt={a.image.localFile.childImageSharp.fluid.originalName} className="h-6 w-6 rounded-full border-2 border-gray-900" />
               ) : (
@@ -30,7 +30,7 @@ const PostListTemplate = ({ post }) => {
         <div className="1/3">
           {post.coverImage.localFile.childImageSharp ?
             <Img fluid={post.coverImage.localFile.childImageSharp.fluid} alt={post.coverImage.localFile.childImageSharp.fluid.originalName} className=" h-32 w-32 sm:h-40 sm:w-40" />
-            : <img src="https://via.placeholder.com/150" alt="placeholder cover-image"/>
+            : <img src="https://via.placeholder.com/150" alt="placeholder cover-image" />
           }
         </div>
       </div>
