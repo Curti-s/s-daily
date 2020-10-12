@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1910f76e-caea-4c64-9da7-cc3aecea5fa6/deploy-status)](https://app.netlify.com/sites/shrapdaily/deploys)
 <p align="center">
     <a href="https://shrapdaily.netlify.app" target="_blank" rel="noopener noreferrer" >
       <img alt="Shrap Daily Logo" src="./src/img/shrap-daily-logo.png" width="200" />
