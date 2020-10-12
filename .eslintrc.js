@@ -3,6 +3,7 @@ module.exports = {
     __PATH_PREFIX__: true,
   },
   extends: 'airbnb',
+  parser: 'babel-eslint',
   rules: {
     'react/jsx-props-no-spreading':'off',
     'react/jsx-filename-extension':[1, { 'extensions':['.js', '.jsx'] }],
