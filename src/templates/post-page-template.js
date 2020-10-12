@@ -1,6 +1,9 @@
 import React from 'react';
 import Img from 'gatsby-image'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+
+import TwitterSVG from '../svg/twitter.svg'
+import InstagramSVG from '../svg/instagram.svg';
 
 const PostPageTemplate = ({ post }) => {
   return (
@@ -18,16 +21,18 @@ const PostPageTemplate = ({ post }) => {
           )}
           <div className="text-sm">
             {post.author.map(a =>
-              <p className="text-gray-900 font-bold leading-none pb-2">{a.name}</p>
+              <>
+                <p className="text-gray-900 font-bold leading-none pb-2">{a.name}</p>
+                <div className="flex pb-2">
+                  <a href={a.instagramLink} target="_blank" rel="noopener noreferrer">
+                    <InstagramSVG className="mr-2 h-6 w-6" />
+                  </a>
+                  <a href={a.twitterLink} target="_blank" rel="noopener noreferrer">
+                    <TwitterSVG className="mr-2 h-6 w-6" />
+                  </a>
+                </div>
+              </>
             )}
-            <div className="flex pb-2">
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <img src="https://via.placeholder.com/20" className="rounded-full  mr-2" alt="instagram" />
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <img src="https://via.placeholder.com/20" className="rounded-full mr-2" alt="twitter" />
-              </a>
-            </div>
             <p className="text-gray-600 font-bold">{post.date} . {post.content.markdownNode.childMdx.timeToRead} min read</p>
           </div>
         </div>
@@ -40,17 +45,18 @@ const PostPageTemplate = ({ post }) => {
         }
         <MDXRenderer className="text-base font-sans leading-relaxed mt-4">{post.content.markdownNode.childMdx.body}</MDXRenderer>
       </div>
-      <div className="p-4 flex flex-row-reverse items-center">
-        <a href="#" target="_blank" rel="noopener noreferrer">
-          <img src="https://via.placeholder.com/20" className="rounded-full  mr-2" alt="instagram" />
-        </a>
-        <a href="#" target="_blank" rel="noopener noreferrer">
-          <img src="https://via.placeholder.com/20" className="rounded-full mr-2" alt="twitter" />
-        </a>
-        {post.author.map(a =>
+
+      {post.author.map(a =>
+        <div className="p-4 flex flex-row-reverse items-center">
+          <a href={a.instagramLink} target="_blank" rel="noopener noreferrer">
+            <InstagramSVG className="mr-2 h-6 w-6" />
+          </a>
+          <a href={a.twitterLink} target="_blank" rel="noopener noreferrer">
+            <TwitterSVG className="mr-2 h-6 w-6" />
+          </a>
           <p className="pr-4 text-gray-900 font-bold-400 italic leading-none">{a.name}</p>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

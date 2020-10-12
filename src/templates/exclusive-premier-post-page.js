@@ -17,6 +17,8 @@ export const data = graphql`
         date
         author {
           name
+          instagramLink
+          twitterLink
           image {
             localFile {
               childImageSharp {
