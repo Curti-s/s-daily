@@ -7,7 +7,7 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "dev": "gatsby develop",
-    "lint": "eslint .",
+    "lint": "eslint . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
     "lint:fix": "eslint . --fix",
     "start": "yarn run clean && yarn run dev"
   },
