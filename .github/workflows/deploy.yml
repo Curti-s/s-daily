@@ -22,9 +22,11 @@ jobs:
       
       - name: Build
         run: yarn build
+        env:
+          GRAPHCMS_ENDPOINT: ${{ secrets.GRAPHCMS_ENDPOINT }}
 
       - name: Netlify action
-        uses: nwtgck/actions-netlify@db90f8c196ec8808d9765741da1be62c48db8867
+        uses: nwtgck/actions-netlify@v1.1.11
         with:
           publish-dir: './public'
           production-branch: master
