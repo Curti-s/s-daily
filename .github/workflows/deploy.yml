@@ -1,0 +1,40 @@
+name: Test, build & deploy to Netlify
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest # runner that the job will run on
+    steps:
+      - name: Checkout code # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+        uses: actions/checkout@v2
+      - name: Setup Node.js env
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: "12.x"
+      - run: yarn
+
+  test:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - run: yarn lint
+
+  build:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Netlify action
+        uses: nwtgck/actions-netlify@db90f8c196ec8808d9765741da1be62c48db8867
+        with:
+          publish-dir: './public'
+          production-branch: master
+          deploy-message: ${{ github.event.head_commit.message }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+ 
