@@ -7,8 +7,8 @@ on:
     branches: [ master ]
 
 jobs:
-  setup:
-    runs-on: ubuntu-latest # runner that the job will run on
+  deploy:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
         uses: actions/checkout@v2
@@ -17,17 +17,12 @@ jobs:
         with:
           node-version: "12.x"
       - run: yarn
+      - name: Test
+        run: yarn lint
+      
+      - name: Build
+        run: yarn build
 
-  test:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - run: yarn lint
-
-  build:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
       - name: Netlify action
         uses: nwtgck/actions-netlify@db90f8c196ec8808d9765741da1be62c48db8867
         with:
