@@ -22,11 +22,6 @@ export const exclusivePremierPageQuery = graphql`
     graphCmsPage(id: { eq:$id }) {
       title
       description
-      seo {
-        browserTitle
-        description
-        slug
-      }
     }
 
     allGraphCmsExclusivePremierPost(sort: {fields: date, order: DESC}, filter: {slug: {eq: "exclusive-premier-post"}}) {
