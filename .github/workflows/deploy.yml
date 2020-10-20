@@ -5,6 +5,9 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+  repository_dispatch: # will enable starting the workflow using HTTP POST externally
+    branches: [ master ]
+  workflow_dispatch: # will enable starting the workflow from UI
 
 jobs:
   deploy:
