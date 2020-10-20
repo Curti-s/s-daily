@@ -19,7 +19,7 @@ function SEO({ title, seo }) {
 
   const pageDescription = seo?.description || siteMetadata.description;
   const pageKeywords = seo?.keywords || siteMetadata.keywords;
-  const pageTitle = seo?.title || title || 'Home';
+  const pageTitle = seo?.title || title || 'SD';
 
   return (
     <Helmet
