@@ -46,7 +46,7 @@ const PostPageTemplate = ({ post }) => (
       {post.coverImage.localFile.childImageSharp
         ? <Img fluid={post.coverImage.localFile.childImageSharp.fluid} alt={post.coverImage.localFile.childImageSharp.fluid.originalName} />
         : <img src="https://via.placeholder.com/1080" alt="placeholder" />}
-      <div className="py-4 max-w-none prose">
+      <div className="py-4 max-w-none prose-sm">
         <MDXRenderer>{post.content.markdownNode.childMdx.body}</MDXRenderer>
       </div>
     </div>
