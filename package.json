@@ -1,6 +1,7 @@
 {
   "private": true,
   "name": "ShrapDaily",
+  "version": "1.0.0",
   "author": "Kirimi (https://github.com/Curti-s)",
   "license": "0BSD",
   "scripts": {
